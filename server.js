@@ -8,23 +8,11 @@ const mongoose = require("mongoose");
 
 const Match = require("./matchesModel");
 
+const dbConnection = require("./db");
+
 const db = process.env.LOCAL_DB;
 const database = process.env.DB_URL;
-mongoose.connect(
-  database,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-
-  (err) => {
-    if (err) {
-      console.log("database connection failed..");
-    } else {
-      console.log("databse connection successfull..");
-    }
-  }
-);
+dbConnection();
 
 const csvFile = path.join(__dirname, "matches.csv");
 
