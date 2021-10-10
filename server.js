@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const Match = require("./matchesModel");
 
 const dbConnection = require("./db");
+mongoose.set("bufferCommands", false);
 
 const db = process.env.LOCAL_DB;
 const database = process.env.DB_URL;
